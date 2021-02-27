@@ -1,3 +1,18 @@
-h1 {
-    background: orange;
+body {
+    background: green;
+}
+
+.tablero{
+    background : black;
+}
+
+.fotoJugador1 , .fotoJugador2{
+   
+    width: 400px;
+    height: 300px;
+}
+
+
+.jugador1 {
+    position: relative;
 }
