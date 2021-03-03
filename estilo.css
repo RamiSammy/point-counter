@@ -1,18 +1,95 @@
 body {
-    background: green;
+    background: rgb(209, 149, 38);
 }
 
-.tablero{
-    background : black;
+p {
+    font-size: medium;
+}
+.tablero {
+    border: 1px red solid;
+    display: flex;
+    justify-content: space-between;
+
 }
 
-.fotoJugador1 , .fotoJugador2{
-   
-    width: 400px;
+.jugador{
+    border: 1px red solid;
+   width: 300px;
     height: 300px;
+    background : url("pelota.PNG") ;
+    background-size : contain;
+     position: relative; 
 }
 
-
-.jugador1 {
+.jugador:hover{
+    width: 320px;
+    height: 320px;
+    background : url("pelota.PNG") ;
+    background-size : contain;
     position: relative;
 }
+
+
+
+.foto-jugador{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-40%); 
+   
+}
+
+.jugador p {
+    background:rgb(73, 179, 41);
+    position: absolute;
+     left: 40%;
+     top: 5%;
+    
+}
+
+.cronometro {
+    background: cyan;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding: 20px;
+    margin-left: 60%;
+    margin-right: 25%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    
+    
+}
+
+table {
+    width: 50%;
+	height: 300px;
+    font-size: 45px;
+}
+
+.contador  {
+    border: 1px solid rgba(100, 200, 0, 0.3);
+    background: blue;
+    top: 50%;
+}
+
+.puntaje { 
+    width: 260px;
+    height: 120px;
+    font-size: 100px;
+    text-align: center;
+    background : rgb(199, 186, 186);
+    margin: auto;  
+}
+
+.saque {
+    position: absolute;
+     left: 40%;
+     top: 62%;
+    width: 50px;
+    height: 50px;
+   
+}
+
