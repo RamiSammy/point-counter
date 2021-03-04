@@ -19,7 +19,8 @@ p {
     background : url("pelota.PNG") ;
     background-size : contain;
      position: relative;
-    transition: all ease-in-out 0.5s
+    transition: all ease-in-out 0.5s;
+    background-size: 100% 100%;
 }
 
 .jugador:hover{
@@ -28,7 +29,7 @@ p {
     background : url("pelota.PNG") ;
     background-size : contain;
     position: relative;
-    transition: all ease-in-out 0.5s
+    transition: all ease-in-out 0.5s;
 }
 
 
@@ -78,18 +79,40 @@ table {
 }
 
 .puntaje { 
+    display: flex;
+    padding: auto;
+    margin: auto;
     width: 260px;
     height: 120px;
-    font-size: 100px;
-    background : rgb(199, 186, 186);
-    margin: auto;
-    text-align: center
+    align-items: center;
+    
+    
+    
 }
 
+.resultado {
+    /* border: 5px solid blue; */
+    background : rgb(199, 186, 186);
+    font-size: 70px;
+    width: 250px;
+    height: 100px;
+    margin: auto;
+    text-align: center;
+    line-height: 100px; 
+    
+}
+
+
 .saque {
-	position: fixed;
-	left: 40%;
-    top: 70%;
-    width: 50px;
-    height: 50px;
+    position: relative;
+    left: -5%;
+    width: 70px;
+    height: 70px; 
+}
+
+.saque:hover {
+    position: relative;
+    left: 105%;
+    width: 70px;
+    height: 70px; 
 }
