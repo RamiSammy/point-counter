@@ -40,7 +40,7 @@ p {
 
 
 
-.foto-jugador{
+.foto-jugador1, .foto-jugador2{
     width: 200px;
     height: 200px;
     position: absolute;
@@ -87,12 +87,13 @@ table {
 
 .puntaje { 
     display:flex;
-    padding: auto;
+    /* padding: auto; */
     margin: auto;
-    width: 260px;
+    width: 350px;
     height: 120px;
     align-items: center;
     background-color: transparent;
+    
    
     
     
@@ -101,14 +102,15 @@ table {
 }
 
 .resultado {
-    /* border: 5px solid blue; */
+    
     background : rgb(199, 186, 186);
     font-size: 70px;
-    width: 250px;
+    width: 400px;
     height: 100px;
-    margin: auto;
+     margin: auto;
     text-align: center;
     line-height: 100px; 
+    
     
 }
 
