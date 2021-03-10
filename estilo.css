@@ -24,9 +24,13 @@ p {
     background : url("pelota.PNG") no-repeat;
     background-size : contain;
      position: relative;
+<<<<<<< Updated upstream
     transition: all ease-in-out 0.5s;
     background-size: 100% 100%;
 
+=======
+     background-size: 100% 100%; 
+>>>>>>> Stashed changes
 }
 
 .jugador:hover{
@@ -116,10 +120,20 @@ table {
 
 
 .saque {
+<<<<<<< Updated upstream
     position: relative;
     left: -5%;
     width: 70px;
     height: 70px; 
+=======
+     position: absolute;
+    /* left: 40%;
+     top: 62%; */
+    width: 50px;
+    height: 50px;
+    /* transform: translate(50%,50%); */
+   
+>>>>>>> Stashed changes
 }
 
 .saque:hover {
