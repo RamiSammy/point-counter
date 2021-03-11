@@ -24,8 +24,20 @@ let gameJugador2 = 0;
 
 let tieBreakJugador1 = 0;
 let tieBreakJugador2 = 0;
+let saqueTieBreak = 1;
+let sacaJugador1 = true;
+let  quienArrancoTieBreak = sacaJugador1;
 
+function cambioDeSaque (){
+    if (sacaJugador1){
+        sacaJugador1 = false;
+        saqueJugador2();
 
+    }else {
+        sacaJugador1 = true;
+        saqueJugador1();
+    }
+}
 
 //Cuando tocan la foto del jugador 1 aumenta el contador 
 puntoJugador1.onclick = function(){
@@ -47,7 +59,9 @@ if(valorTieBreak == false){
                 if(igual != 40 && igual != "Ad"){ //Caso en donde gana sin llegar a Ad
                     puntaje.textContent = `0 - 0`;
                     cambioContador(1); //Funcion creada para sumar el game o el set dependiendo el caso particular
-                     break;
+                    cambioDeSaque();
+
+                    break;
                 } else if (igual == "40"){ // Caso en donde van 40-40, entonces tendria que cambiarse a Ad-40
                     puntaje.textContent = `Ad - ${igual}`; 
                      break;
@@ -58,6 +72,7 @@ if(valorTieBreak == false){
         case "Ad" :
             puntaje.textContent = `0 - 0`;
             cambioContador(1);
+            cambioDeSaque();
             break;
     }
 }else{ // Aca es donde empieza el tiebreak
@@ -68,8 +83,8 @@ if(valorTieBreak == false){
      }else{
         puntaje.textContent = `${tieBreakJugador1} - ${tieBreakJugador2}`; // cambia el resultado en el puntaje
         document.querySelector(".contador").rows[1].cells[setActual].textContent = `6 (${tieBreakJugador1})`; //Cambia el resultado en el contador
-        
-     }
+        tieBreakPelota ();
+    }
 }
 
 };
@@ -96,6 +111,7 @@ puntoJugador2.onclick = function(){
             if(igual != 40 && igual != "Ad"){
                  puntaje.textContent = `0 - 0`;
                  cambioContador(2);
+                 cambioDeSaque();
                     break;
             } else if (igual == "40"){
                  puntaje.textContent = `${igual} - Ad`;
@@ -107,6 +123,7 @@ puntoJugador2.onclick = function(){
         case "Ad" :
             puntaje.textContent = `0 - 0`;
             cambioContador(2);
+            cambioDeSaque();
             break;
     }
 }else{ 
@@ -117,6 +134,7 @@ puntoJugador2.onclick = function(){
      }else{
         puntaje.textContent = `${tieBreakJugador1} - ${tieBreakJugador2}`;
         document.querySelector(".contador").rows[2].cells[setActual].textContent = `6 (${tieBreakJugador2})`;
+        tieBreakPelota ();
      }
 
     
@@ -138,8 +156,10 @@ function cambioContador (numeroJugador) {//numeroJugador es 1 o 2 , el 1 represe
 
     if(gameJugador1 == 6 && gameJugador2 == 6){ // Separo en 2, tiebreak y normal, aca acceden si estan en tiebreak, el valorTieBreak es true y se cambia el contador
         valorTieBreak = true;
+        quienArrancoTieBreak = sacaJugador1; //Si quienArrancoTieBreak es true significa que arranco jugador 1, si es false arranco jugador 2
         document.querySelector(".contador").rows[1].cells[setActual].textContent = `6 (${tieBreakJugador1})`;
         document.querySelector(".contador").rows[2].cells[setActual].textContent = `6 (${tieBreakJugador2})`;
+
         
 } else {
     if(numeroJugador == 1){ // Aca simplemente se remplaza el numero del contador por el nuevo 
@@ -173,3 +193,59 @@ function cambioContador (numeroJugador) {//numeroJugador es 1 o 2 , el 1 represe
    
 }
 
+
+
+
+///Posicion del saque
+//Ocultar 1ra pelota y desocultar 2da pelota
+
+function saqueJugador2() {
+    var pelota = document.querySelector(".saque1");
+    pelota.style.opacity = 0 +"%";
+    var pelota1 = document.querySelector(".saque2");
+    pelota1.style.opacity = 100 +"%"; 
+    sacaJugador1 = false;
+};
+
+//Ocultar 2da pelota y desocultar 1ra pelota
+function saqueJugador1() {
+    var pelota = document.querySelector(".saque2");
+    pelota.style.opacity = 0 +"%";
+    var pelota1 = document.querySelector(".saque1");
+    pelota1.style.opacity = 100 +"%";   
+    sacaJugador1 = true;
+};
+
+// function pelotaSaque() {
+//  if(valorTieBreak==true){
+//      tieBreakPelota();
+
+//  }else {
+//     if((gameJugador1+gameJugador2) % 2 == 0){
+//         saqueJugador1();
+//     }else {
+//         saqueJugador2();
+//     }
+//  }
+
+
+    
+// }
+
+function tieBreakPelota () {
+    console.log(saqueTieBreak);
+    saqueTieBreak++;
+    if(saqueTieBreak == 2){
+        if(sacaJugador1==true){
+            console.log("llegue");
+            saqueJugador2();
+            saqueTieBreak = 0;
+        }else {
+            saqueJugador1();
+            saqueTieBreak = 0;
+        }
+    // }else{
+    //     saqueTieBreak++;
+    //     // console.log(saqueTieBreak);
+     }
+}
